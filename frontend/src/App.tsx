@@ -9,6 +9,7 @@ import {
 import "@connect2ic/core/style.css"
 import logo from "./assets/logo.svg"
 import banner from "./assets/banner.svg"
+import minting from "./assets/mint.gif"
 import nft from "./assets/116.png"
 import Footer from "./components/Footer"
 import qs from "querystring"
@@ -67,6 +68,8 @@ function App() {
 
   useEffect(() => {
     checkHumanStatus()
+    const img = new Image()
+    img.src = minting
     console.log("principal", principal)
   }, [principal])
 
@@ -166,7 +169,7 @@ function App() {
             marginRight: 100,
           }}
         >
-          <img src={nft} alt="" style={{ width: 360, height: 360 }} />
+          <img src={minted ? nft: minting } alt="" style={{ width: 360, height: 360 }} />
         </p>
         <div className="flex-1">
           <h1 className="c_white" style={{ marginBottom: 36 }}>
@@ -245,7 +248,7 @@ function App() {
             borderRadius: 20,
           }}
         >
-          <img src={nft} alt="" style={{ width: 360, height: 360 }} />
+          <img src={minted ? nft: minting } alt="" style={{ width: 360, height: 360 }} />
         </p>
         <h1 className="c_white">{minted ? "Minted!" : "Verified!"}</h1>
         <p>
